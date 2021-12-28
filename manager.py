@@ -3,23 +3,6 @@ import shutil
 import sys
 
 
-def beginerLength():
-    OS = sys.platform
-    if OS == 'darwin':
-        symbol_l = '/'
-
-    elif OS == 'cygwin' or OS == 'win32':
-        symbol_l = "\\"
-
-    else:
-        symbol_l = "/"
-
-    tr = os.getcwd()
-    tr = tr.split(symbol_l)
-    tr = tr[:-1:]
-    tr_len = len(tr)
-    return tr_len
-
 
 def mkfold(folder_name):
     try:
@@ -71,16 +54,7 @@ def cf(path):
 
     else:
         os.chdir(path)
-
-
-def ls():
-    return str((os.listdir()))
-
-
-def pwd():
-    return (os.getcwd())
-
-
+        
 def create(file_name):
     file = open(file_name, "w+")
     file.close()
@@ -98,13 +72,38 @@ def cet(file_name):
     except:
         pass
 
+def ls():
+    return str((os.listdir()))
+
+
+
+def pwd():
+    return (os.getcwd())
+
+
+def LenDir():
+    OS = sys.platform
+    if OS == 'darwin':
+        symbol_l = '/'
+
+    elif OS == 'cygwin' or OS == 'win32':
+        symbol_l = "\\"
+
+    else:
+        symbol_l = "/"
+
+    tr = os.getcwd()
+    tr = tr.split(symbol_l)
+    tr = tr[:-1:]
+    tr_len = len(tr)
+    return tr_len
 
 def rewrite(file_name, content):
     try:
         file = open(file_name, "w")
         file.write(content)
     except:
-        print('Что-то пошло не так')
+        print('Ошюбка')
 
 
 def add(file_name, content):
@@ -117,21 +116,21 @@ def rename(first_name, second_name):
     try:
         os.rename(first_name, second_name)
     except:
-        print('Что-то пошло не так')
+         print('Ошюбка')
 
 
 def copy(first_name, second_name):
     try:
         shutil.copy(first_name, second_name)
     except:
-        print('Что-то пошло не так')
+         print('Ошюбка')
 
 
 def move(first_name, second_name):
     try:
         shutil.move(first_name, second_name)
     except:
-        print('Что-то пошло не так')
+        print('Ошюбка')
 
 
 def help():
